@@ -1,0 +1,62 @@
+name: tech_test_get_x
+description: A new Flutter project.
+
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.1.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.2
+  graphql_flutter: ^5.1.2
+  get: ^4.6.6
+  http: ^0.13.6
+  intl: ^0.19.0
+
+dev_dependencies:
+  flutter_lints: ^2.0.0
+  flutter_gen_runner: ^5.3.1
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/fonts/
+    - assets/images/rick_and_morty_logo.png
+
+  fonts:
+    - family: Jost
+      fonts:
+        - asset: assets/fonts/Jost/Jost-Italic-VariableFont_wght.ttf
+        - asset: assets/fonts/Jost/Jost-VariableFont_wght.ttf
+        - asset: assets/fonts/Jost/static/Jost-Black.ttf
+        - asset: assets/fonts/Jost/static/Jost-BlackItalic.ttf
+        - asset: assets/fonts/Jost/static/Jost-Bold.ttf
+        - asset: assets/fonts/Jost/static/Jost-BoldItalic.ttf
+        - asset: assets/fonts/Jost/static/Jost-ExtraBold.ttf
+        - asset: assets/fonts/Jost/static/Jost-ExtraBoldItalic.ttf
+        - asset: assets/fonts/Jost/static/Jost-ExtraLight.ttf
+        - asset: assets/fonts/Jost/static/Jost-ExtraLightItalic.ttf
+        - asset: assets/fonts/Jost/static/Jost-Italic.ttf
+        - asset: assets/fonts/Jost/static/Jost-Light.ttf
+        - asset: assets/fonts/Jost/static/Jost-LightItalic.ttf
+        - asset: assets/fonts/Jost/static/Jost-Medium.ttf
+        - asset: assets/fonts/Jost/static/Jost-MediumItalic.ttf
+        - asset: assets/fonts/Jost/static/Jost-Regular.ttf
+        - asset: assets/fonts/Jost/static/Jost-SemiBold.ttf
+        - asset: assets/fonts/Jost/static/Jost-SemiBoldItalic.ttf
+        - asset: assets/fonts/Jost/static/Jost-Thin.ttf
+        - asset: assets/fonts/Jost/static/Jost-ThinItalic.ttf
+
+flutter_gen:
+  output: lib/utils/gen/
+  fonts:
+    enabled: true
+    outputs:
+      class_name: FontFamilyToken
