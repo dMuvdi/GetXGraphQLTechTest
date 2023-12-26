@@ -18,6 +18,7 @@ class NavigationScreen extends StatelessWidget {
       builder: (context) {
         return Scaffold(
           appBar: AppBar(
+            automaticallyImplyLeading: false,
             title: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
