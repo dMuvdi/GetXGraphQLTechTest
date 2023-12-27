@@ -4,6 +4,7 @@ import 'package:intl/intl.dart';
 
 import '../screens/navigation_screen.dart';
 import '../controllers/character_controller.dart';
+import '../widgets/info_card.dart';
 
 class CharacterScreen extends StatelessWidget {
   const CharacterScreen({super.key});
@@ -64,91 +65,130 @@ class CharacterScreen extends StatelessWidget {
                 ),
               ),
               Positioned(
-                top: 265,
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                top: 240,
+                child: SizedBox(
+                  height: Get.height - 265,
+                  width: Get.width,
+                  child: ListView(
                     children: [
-                      Text(
-                        controller.character!.name,
-                        style: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 40,
-                          fontWeight: FontWeight.w600
-                        ),
-                      ),
-                      Text(
-                        controller.character!.type! == '' ? 'No type' : controller.character!.type!, 
-                        style: const TextStyle(
-                          color: Colors.white, 
-                          fontSize: 25, 
-                          fontWeight: FontWeight.w300
-                        ),
-                      ),
-                      const SizedBox(height: 14,),
-                      InfoCard(
-                        status: controller.character!.status!,
-                        gender: controller.character!.gender!,
-                        createdAt: DateFormat('MMM dd, y').format(controller.character!.created!),
-                        species: controller.character!.species!,
-                        origin: controller.character!.origin!.name!,
-                      ),
-                      const SizedBox(height: 20,),
-                      const Text(
-                        'Location', 
-                        style: TextStyle(
-                          color: Colors.white, 
-                          fontSize: 23, 
-                          fontWeight: FontWeight.w500
-                        ),
-                      ),                   
-                      ConstrainedBox(
-                        constraints: BoxConstraints(maxWidth: Get.width),
-                        child: ListTile(
-                          leading: const Icon(Icons.location_on, color: Colors.white, size: 30,),
-                          title: Text(
-                            '${controller.character!.location!.name! == 'unknown' ? 'Unknown' : controller.character!.location!.name!} - ${controller.character!.location!.type!}',
-                            style: const TextStyle(
-                              color: Colors.white, 
-                              fontSize: 17, 
-                              fontWeight: FontWeight.w300
-                            ),
-                          ),
-                          subtitle: Row(
-                            children: [
-                              const Text(
-                                'Dimension: ',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.w600,
-                                ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              controller.character!.name,
+                              style: const TextStyle(
+                                color: Colors.white,
+                                fontSize: 40,
+                                fontWeight: FontWeight.w600
                               ),
-                              Expanded(
-                                child: Text(
-                                  controller.character!.location!.dimension! == '' ? 'Unknown' : controller.character!.location!.dimension!,
-                                  maxLines: 1,
-                                  softWrap: false,
-                                  overflow: TextOverflow.fade,
+                            ),
+                            Text(
+                              controller.character!.type! == '' ? 'No type' : controller.character!.type!, 
+                              style: const TextStyle(
+                                color: Colors.white, 
+                                fontSize: 25, 
+                                fontWeight: FontWeight.w300
+                              ),
+                            ),
+                            const SizedBox(height: 14,),
+                            InfoCard(
+                              status: controller.character!.status!,
+                              gender: controller.character!.gender!,
+                              createdAt: DateFormat('MMM dd, y').format(controller.character!.created!),
+                              species: controller.character!.species!,
+                              origin: controller.character!.origin!.name!,
+                            ),
+                            const SizedBox(height: 20,),
+                            const Text(
+                              'Location', 
+                              style: TextStyle(
+                                color: Colors.white, 
+                                fontSize: 23, 
+                                fontWeight: FontWeight.w500
+                              ),
+                            ),                   
+                            ConstrainedBox(
+                              constraints: BoxConstraints(maxWidth: Get.width),
+                              child: ListTile(
+                                leading: const Icon(Icons.location_on, color: Colors.white, size: 30,),
+                                title: Text(
+                                  '${controller.character!.location!.name! == 'unknown' ? 'Unknown' : controller.character!.location!.name!} - ${controller.character!.location!.type!}',
                                   style: const TextStyle(
-                                    color: Colors.white,  // Change color as needed
-                                    fontSize: 15,
-                                    fontWeight: FontWeight.w300,
+                                    color: Colors.white, 
+                                    fontSize: 17, 
+                                    fontWeight: FontWeight.w300
                                   ),
                                 ),
+                                subtitle: Row(
+                                  children: [
+                                    const Text(
+                                      'Dimension: ',
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 15,
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                    ),
+                                    Expanded(
+                                      child: Text(
+                                        controller.character!.location!.dimension! == '' ? 'Unknown' : controller.character!.location!.dimension!,
+                                        maxLines: 1,
+                                        softWrap: false,
+                                        overflow: TextOverflow.fade,
+                                        style: const TextStyle(
+                                          color: Colors.white,  // Change color as needed
+                                          fontSize: 15,
+                                          fontWeight: FontWeight.w300,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               ),
-                            ],
-                          ),
-                        ),
-                      ),
-                      const SizedBox(height: 10,),
-                      const Text(
-                        'Episodes it appears in...', 
-                        style: TextStyle(
-                          color: Colors.white, 
-                          fontSize: 25, 
-                          fontWeight: FontWeight.w600
+                            ),
+                            const SizedBox(height: 10,),
+                            const Text(
+                              'Episodes it appears in...', 
+                              style: TextStyle(
+                                color: Colors.white, 
+                                fontSize: 25, 
+                                fontWeight: FontWeight.w600
+                              ),
+                            ),
+                            SizedBox(
+                              height: 200,
+                              width: Get.width,
+                              child: ListView.builder(
+                                itemCount: controller.character!.episodes!.length,
+                                itemBuilder: (context, index) {
+                                  return ConstrainedBox(
+                                    constraints: BoxConstraints(maxWidth: Get.width),
+                                    child: ListTile(
+                                      leading: const Icon(Icons.tv, color: Colors.white, size: 30,),
+                                      title: Text(
+                                        controller.character!.episodes![index].name!,
+                                        style: const TextStyle(
+                                          color: Colors.white, 
+                                          fontSize: 17, 
+                                          fontWeight: FontWeight.w300
+                                        ),
+                                      ),
+                                      subtitle: Text(
+                                        '${controller.character!.episodes![index].airDate!} - ${controller.character!.episodes![index].episode!}',
+                                        style: const TextStyle(
+                                          color: Colors.white, 
+                                          fontSize: 15, 
+                                          fontWeight: FontWeight.w300
+                                        ),
+                                      ),
+                                    ),
+                                  );
+                                }
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                     ],
@@ -159,156 +199,6 @@ class CharacterScreen extends StatelessWidget {
           ),
         );
       }
-    );
-  }
-}
-
-class InfoCard extends StatelessWidget {
-  const InfoCard({
-    super.key,
-    required this.status,
-    required this.gender,
-    required this.createdAt,
-    required this.species,
-    required this.origin,
-  });
-
-  final String status;
-  final String gender;
-  final String createdAt;
-  final String species;
-  final String origin;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 165,
-      width: Get.width * 0.88,
-      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(20),
-        color: const Color(0xFF585858),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisSize: MainAxisSize.max,
-        children: [
-          Row(
-            children: [
-              const Text(
-                'Status: ',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 20,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-              Text(
-                status == 'unknown' ? 'Unknown' : status,
-                overflow: TextOverflow.fade,
-                maxLines: 1,
-                softWrap: false,
-                style: const TextStyle(
-                  color: Colors.white,  // Change color as needed
-                  fontSize: 20,
-                  fontWeight: FontWeight.w300,
-                ),
-              ),
-            ],
-          ),
-          Row(
-            children: [
-              const Text(
-                'Gender: ',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 20,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-              Text(
-                gender == '' ? 'Unknown' : gender,
-                overflow: TextOverflow.fade,
-                maxLines: 1,
-                softWrap: false,
-                style: const TextStyle(
-                  color: Colors.white,  // Change color as needed
-                  fontSize: 20,
-                  fontWeight: FontWeight.w300,
-                ),
-              ),
-            ],
-          ),
-          Row(
-            children: [
-              const Text(
-                'Created At: ',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 20,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-              Text(
-                createdAt,
-                style: const TextStyle(
-                  color: Colors.white,  // Change color as needed
-                  fontSize: 20,
-                  fontWeight: FontWeight.w300,
-                ),
-              ),
-            ],
-          ),
-          Row(
-            children: [
-              const Text(
-                'Species: ',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 20,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-              Text(
-                species == '' ? 'Unknown' : species,
-                overflow: TextOverflow.fade,
-                maxLines: 1,
-                softWrap: false,
-                style: const TextStyle(
-                  color: Colors.white,  // Change color as needed
-                  fontSize: 20,
-                  fontWeight: FontWeight.w300,
-                ),
-              ),
-            ],
-          ),
-          Row(
-            children: [
-              const Text(
-                'Origin: ',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 20,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-              Expanded(
-                child: Text(
-                  origin == '' ? 'Unknown' : origin,
-                  maxLines: 1,
-                  softWrap: false,
-                  overflow: TextOverflow.fade,
-                  style: const TextStyle(
-                    color: Colors.white,  // Change color as needed
-                    fontSize: 20,
-                    fontWeight: FontWeight.w300,
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ]
-      ),
     );
   }
 }
