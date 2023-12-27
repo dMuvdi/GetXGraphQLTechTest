@@ -10,4 +10,4 @@ To run the project you must have flutter installed along with the SDK, also you 
 
 ![alt text](ui_proposal.png)
 
-This UI is based on the UI inspiration that was given in the test specifications.
+This UI is based on the UI inspiration that was given in the test specifications, the app's UI is built based on the information and data retrieved from the [Rick and Morty's API](https://rickandmortyapi.com) using the GraphQL approach for the API server calls, retrieveing information about the characters, episodes, and locations from the TV show.
