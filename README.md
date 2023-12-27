@@ -1,16 +1,13 @@
-# tech_test_get_x
+# GetX and GraphQL Tech Test in Flutter
 
-A new Flutter project.
+This is a test project for the usage of graphql and getx in the build process of an app in fluttter.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+To run the project you must have flutter installed along with the SDK, also you must clone this repository and run the app ethier on a physical device or an android emulator or IOS simulator as well.
 
-A few resources to get you started if this is your first Flutter project:
+## UI Proposal
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+![alt text](ui_proposal.png)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+This UI is based on the UI inspiration that was given in the test specifications.
